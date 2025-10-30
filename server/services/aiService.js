@@ -6,8 +6,16 @@ import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import https from 'https';
 
+
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 // Initialize dotenv
-dotenv.config();
+// dotenv.config();
+dotenv.config({ path: join(__dirname, '../../.env') });
 
 if (!process.env.GROQ_API_KEY) {
   throw new Error('GROQ_API_KEY is not set in environment variables');
