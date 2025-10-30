@@ -19,7 +19,7 @@ export function Header() {
   useEffect(() => {
     async function fetchStars() {
       try {
-        const res = await fetch("https://api.github.com/repos/KartikLabhshetwar/mind-mentor")
+        const res = await fetch("https://api.github.com/repos/lakshaygarg755/mind-mentor")
         const data = await res.json()
         setStars(data.stargazers_count)
       } catch (error) {
@@ -71,7 +71,7 @@ export function Header() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="https://github.com/KartikLabhshetwar/mind-mentor"
+                    href="https://github.com/lakshaygarg755/mind-mentor"
                     target="_blank"
                     className="hidden sm:inline-block px-4 py-1.5 bg-[#c1ff72] border-2 border-b-4 border-r-4 border-black rounded-lg hover:bg-[#c1ff72] hover:border-b-2 hover:border-r-2 transition-all duration-100 text-sm font-medium shadow-sm hover:shadow active:border-b-2 active:border-r-2"
                   >

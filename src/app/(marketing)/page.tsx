@@ -50,19 +50,19 @@ export default function Page() {
       
       <FeaturesGrid features={features} />
 
-      <section className="py-12 sm:py-20">
+      {/* <section className="py-12 sm:py-20">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
           See Mind Mentor in Action
         </h2>
         <Video />
-      </section>
+      </section> */}
 
-      <section className="py-8 sm:py-20">
+      {/* <section className="py-8 sm:py-20">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
           What Our Users Say
         </h2>
         <SocialWall />
-      </section>
+      </section> */}
 
       <FaqSection />
     </div>
