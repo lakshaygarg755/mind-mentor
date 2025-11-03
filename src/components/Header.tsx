@@ -61,13 +61,13 @@ export function Header() {
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#c1ff72] rounded-sm flex items-center justify-center border-2 border-b-3 border-r-3 border-black">
                 <span className="text-black text-base sm:text-xl">🎓</span>
               </div>
-              <span className="font-semibold text-sm sm:text-base">Mind Mentor</span>
+              <span className="font-semibold text-sm sm:text-base">Mentor.ai</span>
             </Link>
           </div>
 
           {/* Navigation & Auth Buttons */}
           <nav className="flex items-center space-x-2 sm:space-x-4">
-            <TooltipProvider>
+            {/* <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
@@ -82,7 +82,7 @@ export function Header() {
                   <p>Star on GitHub</p>
                 </TooltipContent>
               </Tooltip>
-            </TooltipProvider>
+            </TooltipProvider> */}
 
             {!session && (
               <div className="flex gap-1 sm:gap-2">
