@@ -1,4 +1,4 @@
-# Mind Mentor: AI-Powered Study Assistant 
+# mentor.ai: AI-Powered Study Assistant
 
 ## Table of Contents
 - [Overview](#overview)
@@ -10,17 +10,10 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-## Demo
-
-
-
-https://github.com/user-attachments/assets/1ea26947-1dca-408d-9741-b24c3429944a
-
-
 
 ## Overview
 
-Mind Mentor is an intelligent study companion that leverages AI to transform the learning experience. It combines personalized study planning, resource curation, and interactive assistance to help students achieve their academic goals efficiently.
+mentor.ai is an intelligent study companion that leverages AI to transform the learning experience. It combines personalized study planning, resource curation, and interactive assistance to help students achieve their academic goals efficiently.
 
 ## Key Features
 
@@ -207,4 +200,4 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 ---
 
-Built with 💡 by Kartik Labhshetwar
+Built with 💡 by Lakshay

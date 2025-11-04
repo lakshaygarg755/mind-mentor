@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center md:relative">
           <div className="text-sm text-foreground text-center">
-            © {new Date().getFullYear()} Mind Mentor. All rights reserved.
+            © {new Date().getFullYear()} mentor.ai. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4 md:absolute md:right-0">

@@ -42,7 +42,7 @@ export default function Page() {
     <div className="container mx-auto px-4 py-8 sm:py-16 bg-[#EFE9D5]">
       <HeroSection
         title="Welcome to"
-        highlightedText="Mind Mentor"
+        highlightedText="mentor.ai"
         description="Your AI-powered study assistant for accelerated learning"
         ctaText={session ? "Go to Dashboard" : "Get Started"}
         ctaLink={session ? "/home" : "/register"}
