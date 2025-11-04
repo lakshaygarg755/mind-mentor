@@ -207,11 +207,20 @@ async function curateResources(searchData, subject) {
 async function generatePlan(subject, userId, examDate) {
   // Cache key for study plan
   const cacheKey = `plan_${subject}_${examDate}`;
-  
+
   // Check cache first
   const cachedResult = cache.get(cacheKey);
   if (cachedResult) {
-    return cachedResult;
+    // Create a new StudyPlan instance from cached data to avoid duplicate key errors
+    return new StudyPlan({
+      userId,
+      overview: cachedResult.overview,
+      weeklyPlans: cachedResult.weeklyPlans,
+      recommendations: cachedResult.recommendations,
+      isActive: true,
+      progress: 0,
+      lastUpdated: new Date()
+    });
   }
 
   // Calculate days until exam
@@ -230,7 +239,7 @@ async function generatePlan(subject, userId, examDate) {
         {
           role: "user",
           content: `Create a detailed study plan for ${subject} with ${daysUntilExam} days until the exam on ${examDate}.
-          
+
           Return the response in this exact JSON format:
           {
             "overview": {
@@ -263,15 +272,14 @@ async function generatePlan(subject, userId, examDate) {
     });
 
     const parsedPlan = JSON.parse(completion.choices[0]?.message?.content || "{}");
-    
+
     // Validate the required fields
     if (!parsedPlan.overview || !parsedPlan.weeklyPlans || !parsedPlan.recommendations) {
       throw new Error('Missing required fields in plan structure');
     }
-    
-    // Create a new StudyPlan instance
-    const plan = new StudyPlan({
-      userId,
+
+    // Cache the parsed plan data (not the StudyPlan instance)
+    const planData = {
       overview: {
         subject: parsedPlan.overview.subject,
         duration: parsedPlan.overview.duration,
@@ -286,13 +294,20 @@ async function generatePlan(subject, userId, examDate) {
           duration: task.duration
         }))
       })),
-      recommendations: parsedPlan.recommendations,
+      recommendations: parsedPlan.recommendations
+    };
+
+    cache.set(cacheKey, planData);
+
+    // Create a new StudyPlan instance
+    const plan = new StudyPlan({
+      userId,
+      ...planData,
       isActive: true,
       progress: 0,
       lastUpdated: new Date()
     });
 
-    cache.set(cacheKey, plan);
     return plan;
   } catch (error) {
     console.error('Groq error:', error);
@@ -310,4 +325,4 @@ async function generatePlan(subject, userId, examDate) {
 }
 
 // Export the functions and rate limiter
-export { aiRateLimiter, searchTavily, curateResources, generatePlan }; 
+export { aiRateLimiter, searchTavily, curateResources, generatePlan };
